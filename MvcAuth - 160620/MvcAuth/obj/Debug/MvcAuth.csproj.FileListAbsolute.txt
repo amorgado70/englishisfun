@@ -163,3 +163,6 @@ I:\09 GitHub\englishisfun\MvcAuth - 160617 - Copy\MvcAuth - 160618\MvcAuth\bin\M
 I:\09 GitHub\englishisfun\MvcAuth - 160617 - Copy\MvcAuth - 160618\MvcAuth\obj\Debug\MvcAuth.csprojResolveAssemblyReference.cache
 I:\09 GitHub\englishisfun\MvcAuth - 160617 - Copy\MvcAuth - 160618\MvcAuth\obj\Debug\MvcAuth.dll
 I:\09 GitHub\englishisfun\MvcAuth - 160617 - Copy\MvcAuth - 160618\MvcAuth\obj\Debug\MvcAuth.pdb
+I:\09 GitHub\englishisfun\MvcAuth - 160620\MvcAuth\obj\Debug\MvcAuth.csprojResolveAssemblyReference.cache
+I:\09 GitHub\englishisfun\MvcAuth - 160620\MvcAuth\obj\Debug\MvcAuth.dll
+I:\09 GitHub\englishisfun\MvcAuth - 160620\MvcAuth\obj\Debug\MvcAuth.pdb
