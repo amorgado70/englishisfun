@@ -1,0 +1,17 @@
+<?php 
+$this->data["title"]="winona dog walking: about";
+$this->layout("_layout.phtml");
+?>
+<script type="text/javascript">
+var WIDTH = 720;
+var HEIGHT = 480;
+document.write("<canvas id='aquarium' width='"+WIDTH+"' "+
+"height='"+HEIGHT+"'><\/canvas>");
+var prefix=".";
+</script>
+<div class="bookmark">
+<?php
+\RHildred\Editable\Markdown::render( __DIR__ . "/about.md");
+?>
+</div>
+<script type='text/javascript' src='/Aquarium/Aquarium.js'></script>
