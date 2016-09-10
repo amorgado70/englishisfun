@@ -1,0 +1,55 @@
+
+<?php   $this->layout("_layout_.phtml");?>
+
+                    <h1>Contact</h1>
+                    <p class="row visible-md visible-lg"><br></p>
+                        <!-- Load the Google API -->
+                        <script src="http://maps.googleapis.com/maps/api/js"></script>
+                        <!-- Create a function to initialize the map -->
+                        <script>
+                        function initialize() {
+                          /* create an object (mapProp) to define the properties for the map */
+                          var mapProp = {
+                            center:new google.maps.LatLng(43.3893824,-80.4049101,19),
+                            zoom:15,
+                            mapTypeId:google.maps.MapTypeId.ROADMAP
+                          };
+                          /* create a map object */
+                          var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+                          /* add the marker to the map   */
+                          var marker=new google.maps.Marker({
+                              position:myCenter,
+                              });
+                          marker.setMap(map);
+                        }
+                        /* event listener to load the map */
+                        google.maps.event.addDomListener(window, 'load', initialize);
+                        </script>
+                        <!-- Create a Map Container -->
+                        <div id="googleMap" style="width:450px;height:380px;"></div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <p class="row visible-sm visible-md visible-lg"><br></p>
+                        <p class="row visible-sm visible-md visible-lg"><br></p>
+                        <p class="row visible-sm visible-md visible-lg"><br></p>
+                        <p class="row visible-sm visible-md visible-lg"><br></p>
+                        <p class="row visible-sm visible-md visible-lg"><br></p>
+                        <p class="row visible-sm visible-md visible-lg"><br></p>
+                        <?php
+                        \RHildred\Editable\Markdown::render( __DIR__ . "/contact_.md");
+                        ?>
+                        <p class="row visible-sm visible-md visible-lg"><br></p>
+                        <form class="email" action="https://rich-hildred.rhcloud.com/Mailer/d745c29bf60a02460a1954691">
+                            <input type="email" name="email" placeholder="Reply email address" width="32px"/>
+                            <br />
+                            <input type="text" name="subject" placeholder="Subject of your inquiry" />
+                            <br />
+                            <textarea name="message" placeholder="Your Inquiry"></textarea>
+                            <br />
+                            <button type="submit" class="btn btn-primary btn-md">Send</button>
+                            <button type="reset" class="btn btn-primary btn-md">Reset</button>
+                            <br />
+                        </form>
+                    </div>
+                </div>

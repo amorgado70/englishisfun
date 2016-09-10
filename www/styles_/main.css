@@ -1,0 +1,228 @@
+/* Color pallete : http://paletton.com/#uid=33r0u0kfLjV7Ttkcco4jLg2ovcm */
+
+/* Include the Bootstrap 3.0 */
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css");
+/* Include the Font Awesome icons */
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+
+/* Define fonts to be used */
+@font-face {
+    font-family: TrenchFamily;
+    src: url(../fonts_/trench100free.otf);
+}
+/* Resets for main html elements */
+html, header, body, footer,
+main, section, article, aside,
+h1, h2, h3, h4, h5, h6, p,
+div, span, nav, a,  ol, ul, li,
+img, figure, iframe{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 102%;
+	font-family: TrenchFamily;
+}
+a:hover{
+    text-decoration: none;
+}
+/* Body */
+body{
+	width: 90%; /* center the body on the page */
+	min-width: 480px;
+	margin-left:auto; /* center the body on the page */
+    margin-right:auto; /* center the body on the page */
+	color: #C0AB77;
+	background-color: #355664;
+}
+/* Header navigation menu */
+header{
+	background-color: #718993;
+}
+nav{
+	display: block;
+	height: 2.5em;
+}
+nav a{
+	display: block;
+	padding: .5em;
+	font-weight: bold;
+	text-decoration: none;
+	color: #EAD9B0;
+	background-color: #718993;
+}
+nav a:hover{
+	text-decoration: none;
+	color: #EAD9B0;
+	background-color: #355664;
+}
+nav ul{
+	list-style: none; /* remove <li> bullets */
+}
+/* Main section style */
+main{
+	margin-bottom: 2em;
+}
+h1{
+	font-weight: bold;
+	font-size: 300%;
+}
+h2{
+	font-weight: bold;
+	font-size: 200%
+}
+h3{
+	margin-bottom: 0.5em;
+    font-weight: bold;
+	font-size: 120%
+}
+
+/* Carousel 1 style */
+.carousel-indicators li{
+	border-color: #EABBB0;
+	background-color: #622617;
+}
+.carousel-indicators .active{
+	border-color: #622617;
+	background-color: #EABBB0;
+}
+.imgcarousel1{
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	min-height: 300px;
+    max-height: 300px;
+	min-width: 450px;
+}
+.imgcaptioncarousel1{
+	position: absolute;
+	top: 80%;
+    width: 8em;
+    padding-left: 0.5em;
+    text-align: left;
+	overflow: hidden;
+	font-weight: bold;
+	font-size: 100%;
+	color: #EABBB0;
+	background-color: #622617;
+}
+
+/* Offers style */
+.offer{
+    margin: 0.5em;
+    font-weight: bold;
+    font-size: 120%;
+}
+.offer button{
+	color: #EAD9B0;
+    background-color: #11303E;
+}
+.offer button:hover{
+	color: #EAD9B0;
+	background-color: #718993;
+}
+
+/* Carousel 2 style */
+.imgcarousel2{
+    padding-top: 2em;
+	padding-bottom: 0.5em;
+    width: 260px;
+    height: 200px;
+	}
+.imgcaptioncarousel2{
+	width: 260px;
+	padding-left: 0.5em;
+    text-align: left;
+	overflow: hidden;
+	font-weight: bold;
+	font-size: 80%;
+	color: #EABBB0;
+	background-color: #622617;
+}
+/* Carousel 3 style */
+.imgcarousel3{
+    padding-top: 2em;
+	padding-bottom: 0.5em;
+    width: 260px;
+    height: 200px;
+	}
+.imgcaptioncarousel3{
+	width: 260px;
+	padding-left: 0.5em;
+    text-align: left;
+	overflow: hidden;
+	font-weight: bold;
+	font-size: 80%;
+	color: #EABBB0;
+	background-color: #622617;
+}
+.line{
+	border: 1px solid #718993;
+}
+/* E-mail form style */
+.email input, .email textarea{
+    margin: 0.5em;
+    width: 100%;
+    color: #11303E;
+}
+.email textarea{
+    height: 8em;
+}
+.email button{
+    margin: 0.5em;
+	color: #EAD9B0;
+    background-color: #11303E;
+}
+.email button:hover{
+	color: #EAD9B0;
+	background-color: #718993;
+}
+/* Categoy list style */
+ul{
+	display: block;
+	height: 2.5em;
+}
+ul a{
+	display: block;
+	padding: .5em;
+	font-weight: bold;
+	text-decoration: none;
+	color: #EAD9B0;
+	background-color: #718993;
+}
+ul a:hover{
+	text-decoration: none;
+	color: #EAD9B0;
+	background-color: #355664;
+}
+ul{
+	list-style: none; /* remove <li> bullets */
+}
+
+/* Footer style */
+footer{
+	height: auto;
+	background-color: #718993;
+}
+footer span{
+	font-size: 80%;
+	padding-top: 0.2em;
+	font-family: arial,sans-serif;
+	background-color: #718993;
+	color: #EAD9B0;
+}
+footer a{
+	font-family: TrenchFamily;
+	font-weight: bold;
+	text-decoration: none;
+	background-color: #718993;
+	color: #EAD9B0;
+}
+footer a:hover{
+	font-family: TrenchFamily;
+	font-weight: bold;
+	text-decoration: none;
+	background-color: #355664;
+	color: #EAD9B0;
+}

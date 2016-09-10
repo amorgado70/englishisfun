@@ -1,0 +1,97 @@
+<?php   $this->layout("_layout_.phtml");?>
+
+                    <?php $nCategory = $this->data["product"]->category - 1;?>
+                    <?php $aCategory = $this->data["categories"];?>
+                    <h1>to <?php echo $aCategory[$nCategory]->name;?></h1>
+                    <?php $aProducts = $this->data["products"];
+                    $nCategory = $this->data["product"]->category;
+                    $nProductID = $this->data["product"]->productID;
+                    $i=0;
+                    while( $i < count($aProducts) ){
+                        $oProduct = $aProducts[$i];
+                        if ($oProduct->category!==$nCategory or
+                            $oProduct->productID == $nProductID ){
+                            array_splice($aProducts, $i, 1);
+                        }
+                        else{
+                            $i++;
+                        }
+                    }
+                    ?>
+					<p class="row visible-sm visible-md visible-lg"><br></p>
+					<h2>You deserve it!</h2>
+					<h2>Pick your destination today!</h2>
+                    <p class="row visible-sm visible-md visible-lg"><br></p>
+                    <p class="row visible-sm visible-md visible-lg"><br></p>
+                    <p class="row visible-sm visible-md visible-lg"><br></p>
+                    <?php $oProduct = $this->data["product"];?>
+                    <h3><?php echo $oProduct->description; ?></h3>
+				</div>
+				<div class="col-md-6">
+					<p class="row visible-sm visible-md visible-lg"><br></p>
+                    <a href="/products/<?php echo $oProduct->productID; ?>">
+                        <img class="imgcarousel1" alt="<?php echo $oProduct->name ?>" src="/<?php echo $oProduct->image; ?>" title="<?php echo $oProduct->name ?>">
+                        <p class="imgcaptioncarousel1"><?php echo $oProduct->name ?></p>
+                    </a>
+                </div>
+                <p class="row visible-sm visible-md visible-lg"><br></p>
+                <p class="row visible-sm visible-md visible-lg"><br></p>
+            </div>
+
+            <?php foreach($this->data["offers"] as $oOffer){ ?>
+            <div class="offer row container" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <div class="col-md-6"><?php echo $oOffer->description; ?></div>
+                <meta itemprop="priceCurrency" content="<?php echo $oOffer->priceCurrency; ?>" />
+                <div class="col-md-4"><span class="pull-right" itemprop="price">$<?php echo $oOffer->price * pow(10, $oOffer->priceExponent); ?></span></div>
+                <div class="col-md-2">
+                    <div ng-init="amount.currentAmount = <?php echo $oOffer->price * pow(10, $oOffer->priceExponent); ?>">
+                        <button class="btn btn-primary btn-large">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+
+
+
+            <div class="row line"></div>
+			<div  class="row">
+				<div class="col-md-12">
+					<p class="row visible-sm visible-md visible-lg"><br></p>
+					<h3>Customers Who Were Interested In This Destination Also Viewed:<h3>
+				</div>
+			</div>
+            <div data-ride="carousel" class="carousel slide" id="myCarousel3">
+                <div id="myCarousel3PlaceHolder" class="carousel-inner">
+                <?php
+                $nProducts = count($aProducts);
+                $nCurrent = 0;
+                while($nCurrent < $nProducts){ ?>
+                    <div class="item<?php if($nCurrent == 0) echo " active"; ?>">
+                        <?php
+                        for($n = 0; $n < 2 && $nCurrent < $nProducts; $n++){
+                            $oProduct = $aProducts[$nCurrent];
+                        ?>
+                            <div class="col-md-6">
+                                <a href="/products/<?php echo $oProduct->productID; ?>">
+                                    <img class="imgcarousel3" alt="<?php echo $oProduct->name ?>" src="/<?php echo $oProduct->image; ?>" title="<?php echo $oProduct->name ?>">
+                                    <p class="imgcaptioncarousel3"><?php echo $oProduct->name ?></p>
+                                </a>
+                            </div>
+
+                        <?php
+                            $nCurrent++;
+                        } ?>
+
+                    </div>
+                <?php } ?>
+                </div>
+                <a data-slide="prev" href="#myCarousel3" class="left carousel-control"><i class="fa fa-arrow-left"></i></a>
+                <a data-slide="next" href="#myCarousel3" class="right carousel-control"><i class="fa fa-arrow-right"></i></a>
+            </div>
+            <script>
+                jQuery("document").ready(function() {
+                    jQuery("#myCarousel3").carousel({
+                        interval : 3000
+                    });
+                });
+            </script>

@@ -1,1 +1,0 @@
-We seem to be having technical difficulties! Please phone me 226-978-1954.

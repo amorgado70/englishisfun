@@ -1,0 +1,39 @@
+
+<?php   $this->layout("_layout_.phtml");?>
+
+                </div>
+            </div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+                    <p class="row visible-md visible-lg"><br></p>
+                    <h1>Title: Assignment 1- Bibliography</h1>
+                    <h2>Alfredo Morgado</h2>
+                    <h2>ID 7381650</h2>
+                    <p class="row visible-md visible-lg"><br></p>
+                    <h1>PROG8020-15F-Programming: Web Design and Development ( FA L L 2 0 1 5 )</h1>
+                    <h2>Prof. Richard	Hildred</h2>
+                    <h2>Due Date: November 27 @ 12pm</h2>
+                    <p class="row visible-md visible-lg"><br></p>
+                    <h3>The information and pictures used in this assigment were obtained from the National Geographic Expeditions.</h3>
+                    <h3>Please see the complete list of the site links below:</h3>
+                    <p class="row visible-md visible-lg"><br></p>
+                    <ul>
+                        <?php
+                            $aCategories = $this->data["categories"];
+                            foreach($aCategories as $oCategory){?>
+                            <li class="col-sm-4">
+                                <a href="<?php echo $oCategory->reference?>">
+                                    <?php echo $oCategory->name?></a></li>
+                        <?php } ?>
+                        <?php
+                            $aProducts = $this->data["products"];
+                            foreach($aProducts as $oProduct){?>
+                            <li class="col-sm-4">
+                                <a href="<?php echo $oProduct->reference?>">
+                                    <?php echo $oProduct->name?></a></li>
+                        <?php } ?>
+                    </ul>
+                </div>
+            </div>
+        </div>

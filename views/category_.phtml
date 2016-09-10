@@ -1,0 +1,53 @@
+
+<?php   $this->layout("_layout_.phtml");?>
+
+					<p class="row visible-sm visible-md visible-lg"><br></p>
+					<p class="row visible-sm visible-md visible-lg"><br></p>
+					<p class="row visible-md visible-lg"><br></p>
+					<h2>You deserve it!</h2>
+					<h2>Pick your destination today!</h2>
+                    <p class="row visible-sm visible-md visible-lg"><br></p>
+                    <h3>To start, select the world region</h3>
+                    <h3>by clicking on the image</h3>
+				</div>
+				<div class="col-md-6">
+                    <p class="row visible-sm visible-md visible-lg"><br></p>
+					<p class="row visible-sm visible-md visible-lg"><br></p>
+                    <div data-ride="carousel" class="carousel slide" id="myCarousel1">
+                        <div id="myCarousel1PlaceHolder" class="carousel-inner">
+                            <ol class="carousel-indicators">
+                                <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel1" data-slide-to="1"></li>
+                                <li data-target="#myCarousel1" data-slide-to="2"></li>
+                                <li data-target="#myCarousel1" data-slide-to="3"></li>
+                                <li data-target="#myCarousel1" data-slide-to="4"></li>
+                            </ol>
+
+                        <?php
+                        $aCategories = $this->data["categories"];
+                        $nCategories = count($aCategories);
+                        $indexCategory = 0;
+                        for($i = 0; $i < $nCategories; $i++){
+                            $indexCategory = $i;
+                            $indexProduct = $i * 10 + 1;
+                            $oCategory = $aCategories[$i]; ?>
+                            <div class="item<?php if($i == 0) echo " active"; ?>">
+                                <a href="/products/<?php echo $indexProduct; ?>">
+                                    <img class="imgcarousel1" alt="<?php echo $oCategory->name ?>" src="/<?php echo $oCategory->image; ?>" title="<?php echo $oCategory->name ?>">
+                                    <p class="imgcaptioncarousel1"><?php echo $oCategory->name ?></p>
+                                </a>
+                            </div>
+                        <?php
+                        } ?>
+                        </div>
+                        <script>
+                            jQuery("document").ready(function() {
+                                jQuery("#myCarousel1").carousel({
+                                    interval : 3000
+                                });
+                            });
+                        </script>
+				    </div>
+                </div>
+            </div>
+

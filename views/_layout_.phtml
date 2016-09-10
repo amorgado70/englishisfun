@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<!-- Sets the visible area in mobile devices -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Essential Travels</title>
+		<link rel="shortcut icon" href="../images_/favicon.ico">
+		<!-- Adjustments to browser defaults CSS -->
+		<link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
+		<!-- Adjustments to use HTML5 semantics elements with IE7 and 8 -->
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<!-- This project style -->
+		<link rel="stylesheet" href="../styles_/main.css">
+        <!-- Include jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	</head>
+	<body>
+<!-- ***** -->
+        <?php   include "_nav_.phtml";?>
+		<main class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<p class="row visible-sm visible-md visible-lg"><br></p>
+                    <h1>Essential Travels</h1>
+            <?php   $this->renderBody(); ?>
+        </main>
+<!-- ***** -->
+		<footer class="container">
+			<div class="row">
+				<span class="col-sm-8">&copy; Alfredo Morgado
+				<script>document.write(new Date().getFullYear())</script>
+				- ASSIGNMENT 1 - PROG8020 - Conestoga College</span>
+				<a class="col-sm-2" href="/credits">CREDITS</a>
+				<a  class="col-sm-2" href="/credits">REFERENCES</a>
+			</div>
+		</footer>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </body>
+</html>
