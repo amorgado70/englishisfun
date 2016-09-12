@@ -6,6 +6,7 @@ require __DIR__ . "/../vendor/autoload.php";
 //connect to database
 //$oDb = new PDO("sqlite:" . __DIR__ . "/../products.sqlite");
 $oDb = new PDO("sqlite:" . __DIR__ . "/../products_.sqlite");
+$oDbV = new PDO("sqlite:" . __DIR__ . "/../vocabulary.sqlite");
 
 $oApp = new \Slim\Slim(array(
         'view' => new \PHPView\PHPView(),
@@ -39,8 +40,12 @@ $oApp->get("/failure", function()use($oApp){
    $oApp->render("failure_.phtml");
 });
 
-$oApp->get("/products/:productID", function($nId){
-    renderProduct($nId);
+$oApp->get("/products/:productID", function($nId){    
+    renderProduct($nId);    
+});
+
+$oApp->get("/words/:wordID", function($nId){
+    renderWord($nId);
 });
 
 $oApp->post("/", function() use($oApp, $oDb){
@@ -67,9 +72,9 @@ function renderCredits(){
 }
 
 function renderCategory(){
-    global $oApp, $oDb;
+    global $oApp, $oDbV;
     //fetching list of categories
-    $oStmt = $oDb->prepare("SELECT * FROM categories");
+    $oStmt = $oDbV->prepare("SELECT * FROM categories");
     $oStmt->execute();
     $aCategories = $oStmt->fetchAll(PDO::FETCH_OBJ);
 
@@ -110,4 +115,16 @@ function renderProduct($nId){
 
     // render template with data
     $oApp->render("product_.phtml", array("product"=>$aProduct[0],"images"=>$aImages, "offers"=>$aOffers, "products"=>$aProducts,"categories"=>$aCategories));
+}
+
+function renderWord($nId){
+    global $oApp, $oDbV;
+    // fetching word
+    $oStmt = $oDbV->prepare("SELECT * FROM words WHERE ID = :id");
+    $oStmt->bindParam("id", $nId);
+    $oStmt->execute();
+    $aWord = $oStmt->fetchAll(PDO::FETCH_OBJ);
+
+    // render template with data
+    $oApp->render("word_.phtml", array("word"=>$aWord[0]));
 }

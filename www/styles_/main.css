@@ -91,9 +91,10 @@ h3{
 .imgcarousel1{
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
+    padding-left: 5em;
 	min-height: 300px;
     max-height: 300px;
-	min-width: 450px;
+	min-width: 300px;
 }
 .imgcaptioncarousel1{
 	position: absolute;
