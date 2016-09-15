@@ -1,26 +1,66 @@
 
+
 <?php   $this->layout("_layout_.phtml");?>
 
-                        <?php
-                        $oWord = $this->data["word"];?>
+                    <!-- Get all data about the word -->
+                    <?php $oWord = $this->data["word"];?>   
 
-					<p class="row visible-sm visible-md visible-lg"><br></p>
-					<p class="row visible-sm visible-md visible-lg"><br></p>
-					<p class="row visible-md visible-lg"><br></p>
-                    <h2>Here you can</h2>					
-                    <h2>improve your</h2>
-					<h2>active vocabulary <?php echo $oWord->word ?></h2>
-                    <p class="row visible-sm visible-md visible-lg"><br></p>
-                    <h3>To start, select a word group</h3>
-                    <h3>by clicking the image</h3>
-				</div>
+					<p class="row"><br></p>
+                    <h2>Word Group: <?php echo $oWord->categoryID ?></h2>
+                    <h3>Word: <?php echo $oWord->word ?></h2>                    
+                    <div class="row">
+                        <div ng-app="myApp" ng-controller="hstController">
+                            <div id="tape">
+                                <p ng-repeat="amount in amounts" ng-bind="amount"></p>
+                            </div>
+                            <form id="addingmachine">
+                                <table>
+                                    <tr>
+                                        <td colspan="3">
+                                            <input ng-model="amount" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" ng-bind="subtotal"></td>
+                                        <td>subtotal</td>
+                                    </tr>
+                                    <tr>
+                                        <td ng-bind="hst()"></td>
+                                        <td>hst</td>
+                                        <td>
+                                            <select ng-model="province">
+                                                <option value="ON">Ontario
+                                                </option>
+                                                <option value="AB">Alberta
+                                                </option>
+                                                <option value="QC">Quebec
+                                                </option>
+
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" ng-bind="grandtotal"></td>
+                                        <td>
+                                            <input ng-click="addAmount()" type="submit" value="Total" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>                        
+                    </div>
+                </div>
+
 
                 <div class="col-md-6">
-                    <p class="row visible-sm visible-md visible-lg"><br></p>
-					<p class="row visible-sm visible-md visible-lg"><br></p>
-                    <div class="row visible-sm visible-md visible-lg">
+                    <div class="row">
                         <img class="imgcarousel1" alt="<?php echo $oWord->word ?>" src="/<?php echo $oWord->imageURL; ?>" title="<?php echo $oWord->word ?>">
                     </div>
                 </div>
+
+
+
+
+
             </div>
 
