@@ -9,44 +9,13 @@
                     <h2>Word Group: <?php echo $oWord->categoryID ?></h2>
                     <h3>Word: <?php echo $oWord->word ?></h2>                    
                     <div class="row">
-                        <div ng-app="myApp" ng-controller="hstController">
-                            <div id="tape">
-                                <p ng-repeat="amount in amounts" ng-bind="amount"></p>
+                        <div ng-app="myApp" ng-controller="wordController">
+                            <div id="tape2">
+                                <span ng-repeat="letter in letters" ng-bind="letter"></span>
                             </div>
-                            <form id="addingmachine">
-                                <table>
-                                    <tr>
-                                        <td colspan="3">
-                                            <input ng-model="amount" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" ng-bind="subtotal"></td>
-                                        <td>subtotal</td>
-                                    </tr>
-                                    <tr>
-                                        <td ng-bind="hst()"></td>
-                                        <td>hst</td>
-                                        <td>
-                                            <select ng-model="province">
-                                                <option value="ON">Ontario
-                                                </option>
-                                                <option value="AB">Alberta
-                                                </option>
-                                                <option value="QC">Quebec
-                                                </option>
-
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" ng-bind="grandtotal"></td>
-                                        <td>
-                                            <input ng-click="addAmount()" type="submit" value="Total" />
-                                        </td>
-                                    </tr>
-                                </table>
-                            </form>
+                            <div>
+                                <input ng-keypress="addChar($event)" ng-model="teste"/>
+                            </div>
                         </div>                        
                     </div>
                 </div>
