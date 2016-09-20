@@ -79,6 +79,13 @@ h3{
 	font-size: 120%
 }
 
+.hidden-all, .hidden-all:focus{
+    border: 0;
+    box-shadow: none;
+    color: #355664;
+    background-color: #355664;
+}
+
 /* Carousel 1 style */
 .carousel-indicators li{
 	border-color: #EABBB0;

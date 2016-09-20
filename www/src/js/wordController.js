@@ -6,8 +6,8 @@ angular.module("myApp", []).controller("wordController", function ($scope, $wind
         chars = "";
         solution = $window.document.getElementById("solution").innerText;
         solution = solution.toUpperCase();
-        $scope.letters = [];
-        $scope.teste = "";        
+        $scope.charInput = "";
+        $scope.charsOutput = chars;
         var element = $window.document.getElementById("charInput");
         element.focus();
     }
@@ -20,19 +20,33 @@ angular.module("myApp", []).controller("wordController", function ($scope, $wind
         if (( charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123 ))
         {
             var oneChar = String.fromCharCode(charCode).toUpperCase() ;
-            $scope.letters.push(oneChar);
-            chars = chars + oneChar;
-        }        
-        $scope.teste = "";
+            chars = chars + oneChar;                       
+        }
+        if( charCode == 8 || charCode == 46 )
+        {
+            chars = chars.substring(0,(chars.length -1))
+        }
+        $scope.charInput = "";
+        $scope.charsOutput = chars;
     };
     $scope.checkChars = function () {
-            if ( chars == solution.substring(0,chars.length) )
-            {
+        if ( chars == solution.substring(0,chars.length) )
+        {
                 return true;
-            }
-            else
-            {
+        }
+        else
+        {
                 return false;
-            }
-        };    
+        }
+    };
+    $scope.checkWord = function () {
+        if ( chars == solution )
+        {
+                return true;
+        }
+        else
+        {
+                return false;
+        }
+    };
 });

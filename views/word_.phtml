@@ -1,31 +1,35 @@
 
 
-<?php   $this->layout("_layout_.phtml");?>
+<?php   $this->layout("_layout2.phtml");?>
 
                     <!-- Get all data about the word -->
                     <?php $oWord = $this->data["word"];?>   
 
 					<p class="row"><br></p>
-                    <h2>Word Group: <?php echo $oWord->categoryID ?></h2>
-                    <h3>Word: <span id="solution"><?php echo $oWord->word ?></span></h3>
-                    
-                    <h3>Definition: </h3>
-                    <p><?php echo $oWord->definition ?></p>                    
                     <div ng-app="myApp" ng-controller="wordController">
+                        <div ng-show="checkWord()">
+                            <div class="row" >
+                                <h2 class="col-xs-10 text-center" >
+                                    <span >Well Done!!!</span>
+                                </h2>                                
+                                <h2 class="col-xs-2">
+                                    <button><span class="glyphicon glyphicon-chevron-right"></span></button>                                
+                                </h2>
+                            </div>
+                            <p class="row"><br></p>
+                        </div>
                         <div class="row">
-                            <div class="col-xs-1 text-right" >
+                            <h2 class="col-xs-1 text-right" >
                                 <span ng-show="checkChars()">&#x1F60A</span>
                                 <span ng-show="!checkChars()">&#x1F61E</span>
-                            </div>
-                            <div class="col-xs-1">
-                                <button ng-click="initChars()">X</button>
-                            </div>                            
-                            <div id="tape2" class="col-xs-8">
-                                <span ng-repeat="letter in letters track by $index" ng-bind="letter"></span>
-                            </div>
-                            <div class="col-xs-1">
-                                <input id="charInput" name="charInput" class="form-control" ng-keypress="addChar($event)" ng-model="teste"/>
-                            </div>                            
+                            </h2>                           
+                            <h2 class="col-xs-9">
+                                <span ng-bind="charsOutput"></span>
+                            </h2>
+                            <h2 class="col-xs-1">
+                                <button ng-click="initChars()"><span class="glyphicon glyphicon-remove"></span></button>
+                            </h2>
+                            <input class="form-control hidden-all" id="charInput" name="charInput" ng-keydown="addChar($event)" ng-model="charInput"/>                           
                         </div>                        
                     </div>
                 </div>
@@ -36,6 +40,9 @@
                         <img class="imgcarousel1" alt="<?php echo $oWord->word ?>" src="/<?php echo $oWord->imageURL; ?>" title="<?php echo $oWord->word ?>">
                     </div>
                 </div>
+
+                    <h3><span id="solution" class="hidden-all"><?php echo $oWord->word ?></span></h3>                    
+                    <h3>Definition: <?php echo $oWord->definition ?></h3>
 
 
 
