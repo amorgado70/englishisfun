@@ -7,15 +7,25 @@
 
 					<p class="row"><br></p>
                     <h2>Word Group: <?php echo $oWord->categoryID ?></h2>
-                    <h3>Word: <?php echo $oWord->word ?></h2>                    
-                    <div class="row">
-                        <div ng-app="myApp" ng-controller="wordController">
-                            <div id="tape2">
-                                <span ng-repeat="letter in letters" ng-bind="letter"></span>
+                    <h3>Word: <span id="solution"><?php echo $oWord->word ?></span></h3>
+                    
+                    <h3>Definition: </h3>
+                    <p><?php echo $oWord->definition ?></p>                    
+                    <div ng-app="myApp" ng-controller="wordController">
+                        <div class="row">
+                            <div class="col-xs-1 text-right" >
+                                <span ng-show="checkChars()">&#x1F60A</span>
+                                <span ng-show="!checkChars()">&#x1F61E</span>
                             </div>
-                            <div>
-                                <input ng-keypress="addChar($event)" ng-model="teste"/>
+                            <div class="col-xs-1">
+                                <button ng-click="initChars()">X</button>
+                            </div>                            
+                            <div id="tape2" class="col-xs-8">
+                                <span ng-repeat="letter in letters track by $index" ng-bind="letter"></span>
                             </div>
+                            <div class="col-xs-1">
+                                <input id="charInput" name="charInput" class="form-control" ng-keypress="addChar($event)" ng-model="teste"/>
+                            </div>                            
                         </div>                        
                     </div>
                 </div>
