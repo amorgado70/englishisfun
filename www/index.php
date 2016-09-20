@@ -78,8 +78,14 @@ function renderCategory(){
     $oStmt->execute();
     $aCategories = $oStmt->fetchAll(PDO::FETCH_OBJ);
 
+    //fetching list of words
+    $oStmt = $oDbV->prepare("SELECT ID, categoryID FROM words");
+    $oStmt->execute();
+    $aWords = $oStmt->fetchAll(PDO::FETCH_OBJ);    
+    
     // render template with data
-    $oApp->render("category_.phtml", array("categories"=>$aCategories));
+    $oApp->render("category.phtml", array("words"=>$aWords,"categories"=>$aCategories));
+    
 }
 
 
@@ -126,5 +132,5 @@ function renderWord($nId){
     $aWord = $oStmt->fetchAll(PDO::FETCH_OBJ);
 
     // render template with data
-    $oApp->render("word_.phtml", array("word"=>$aWord[0]));
+    $oApp->render("word.phtml", array("word"=>$aWord[0]));
 }
