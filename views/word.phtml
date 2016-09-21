@@ -1,0 +1,78 @@
+
+
+<?php   $this->layout("layout2.phtml");?>
+
+                    <!-- Get all data about the word -->
+                    <?php $oWord = $this->data["word"];?>
+                    <?php $sWordIDs = $this->data["wordIDs"];?>
+                    <?php $aWordIDs = explode(",",$sWordIDs);
+                        $nNextWordID = array_pop($aWordIDs);
+                        $sWordIDs = implode(",",$aWordIDs);
+                        $sNextURL = "/words/";
+                        if (count($aWordIDs) > 0)
+                        {
+                            $sNextURL = $sNextURL . $nNextWordID . "/" . $sWordIDs;
+                        }
+                        else
+                        {
+                            $nLastWord = 0;
+                            if ( $nNextWordID != $nLastWord )
+                            {
+                                $sNextURL = $sNextURL . $nNextWordID . "/" . $nLastWord;
+                            }
+                            else
+                            {
+                                $sNextURL = "/";
+                            }
+                            
+                        }                            
+                        ?> 
+
+					<p class="row"><br></p>
+                    <div ng-app="myApp" ng-controller="wordController">
+                        <div ng-show="checkWord()">
+                            <div class="row" >
+                                <h2 class="col-xs-10 text-center" >
+                                    <span >Well Done!!!</span>
+                                </h2>                                
+                                <h2 class="col-xs-2">
+                                    <a href="<?php echo $sNextURL ?>">
+                                        <button id="nextURL"><span class="glyphicon glyphicon-chevron-right"></span></button>                                
+                                    </a>
+                                </h2>
+                            </div>
+                            <p class="row"><br></p>
+                        </div>
+                        <div class="row">
+                            <h2 class="col-xs-1 text-right" >
+                                <span ng-show="checkChars()">&#x1F60A</span>
+                                <span ng-show="!checkChars()">&#x1F61E</span>
+                            </h2>                           
+                            <h2 class="col-xs-9">
+                                <span ng-bind="charsOutput"></span>
+                            </h2>
+                            <h2 class="col-xs-1">
+                                <button ng-click="initChars()"><span class="glyphicon glyphicon-remove"></span></button>
+                            </h2>
+                            <input class="form-control hidden-all" id="charInput" name="charInput" ng-keydown="addChar($event)" ng-model="charInput"/>                           
+                        </div>                        
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="row">
+                        <img class="imgcarousel1" alt="<?php echo $oWord->word ?>" src="/<?php echo $oWord->imageURL; ?>" title="<?php echo $oWord->word ?>">
+                    </div>
+                </div>
+
+                    <h3><span id="solution" class="hidden-all"><?php echo $oWord->word ?></span></h3>                    
+                    <h3>Definition: <?php echo $oWord->definition ?></h3>
+                    <h3>Definition: <?php print_r ($aWordIDs) ?></h3>
+
+
+
+
+
+            </div>
+

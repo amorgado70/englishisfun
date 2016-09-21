@@ -44,8 +44,8 @@ $oApp->get("/products/:productID", function($nId){
     renderProduct($nId);    
 });
 
-$oApp->get("/words/:wordID", function($nId){
-    renderWord($nId);
+$oApp->get("/words/:nID/:sIDs", function($nID,$sIDs){
+    renderWord($nID,$sIDs);
 });
 
 $oApp->post("/", function() use($oApp, $oDb){
@@ -123,14 +123,14 @@ function renderProduct($nId){
     $oApp->render("product_.phtml", array("product"=>$aProduct[0],"images"=>$aImages, "offers"=>$aOffers, "products"=>$aProducts,"categories"=>$aCategories));
 }
 
-function renderWord($nId){
+function renderWord($nID,$sIDs){
     global $oApp, $oDbV;
     // fetching word
     $oStmt = $oDbV->prepare("SELECT * FROM words WHERE ID = :id");
-    $oStmt->bindParam("id", $nId);
+    $oStmt->bindParam("id", $nID);
     $oStmt->execute();
     $aWord = $oStmt->fetchAll(PDO::FETCH_OBJ);
 
     // render template with data
-    $oApp->render("word.phtml", array("word"=>$aWord[0]));
+    $oApp->render("word.phtml", array("word"=>$aWord[0],"wordIDs"=>$sIDs));
 }
