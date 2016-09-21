@@ -27,6 +27,7 @@
                             $indexCategory = $i;                            
                             $oCategory = $aCategories[$i];
                             $categoryID = $oCategory->ID;
+                            // Build an array for all words that belong to the same category
                             $aWordIDs = array();
                             for($j = 0; $j < $nWords; $j++)
                             {
@@ -36,6 +37,17 @@
                                     array_push($aWordIDs,$oWord->ID);
                                 }
                             }
+                            
+                            // Randomly shuffle the words array
+                            $nArraySize = count($aWordIDs);
+                            $aTemporaryArray = array();
+                            for ($x = $nArraySize-1 ; $x >= 0; $x--) {
+                                $nRandomIndex = rand(0, $x);
+                                array_push($aTemporaryArray, $aWordIDs[$nRandomIndex]);
+                                array_splice($aWordIDs, $nRandomIndex, 1);
+                            }                            
+                            $aWordIDs = $aTemporaryArray;
+                            
                             $nNextWordID = array_pop($aWordIDs);
                             $sWordIDs = implode(",",$aWordIDs);?>                        
                             
