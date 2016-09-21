@@ -31,7 +31,7 @@
 					<p class="row"><br></p>
                     <div ng-app="myApp" ng-controller="wordController">
                         <div ng-show="checkWord()">
-                            <div class="row" >
+                            <div class="row">
                                 <h2 class="col-xs-10 text-center" >
                                     <span >Well Done!!!</span>
                                 </h2>                                
@@ -41,7 +41,12 @@
                                     </a>
                                 </h2>
                             </div>
-                            <p class="row"><br></p>
+                            <div class="row">
+                                <p><br></p>
+                                <h3 ng-show="checkWord()">Pronunciation: <?php echo $oWord->pronunciation ?></h3>
+                                <h3 ng-show="checkWord()">Other forms: <?php echo $oWord->otherForms ?></h3>                            
+                                <p ng-show="checkWord()"><br></p>
+                            </div>
                         </div>
                         <div class="row">
                             <h2 class="col-xs-1 text-right" >
@@ -52,10 +57,11 @@
                                 <span ng-bind="charsOutput"></span>
                             </h2>
                             <h2 class="col-xs-1">
-                                <button ng-click="initChars()"><span class="glyphicon glyphicon-remove"></span></button>
+                                <button ng-click="initChars()"><span class="glyphicon glyphicon-repeat"></span></button>
                             </h2>
                             <input class="form-control hidden-all" id="charInput" name="charInput" ng-keydown="addChar($event)" ng-model="charInput"/>                           
                         </div>                        
+                        <h3 class="row visible-sm visible-md visible-lg">Definition: <?php echo $oWord->definition ?></h3>
                     </div>
                 </div>
 
@@ -66,13 +72,14 @@
                     </div>
                 </div>
 
-                    <h3><span id="solution" class="hidden-all"><?php echo $oWord->word ?></span></h3>                    
-                    <h3>Definition: <?php echo $oWord->definition ?></h3>
-                    <h3>Definition: <?php print_r ($aWordIDs) ?></h3>
-
-
-
-
-
+                <div class="col-md-6">
+                    <div class="row hidden-sm hidden-md hidden-lg">
+                        <h3><span id="solution" class="hidden-all"><?php echo $oWord->word ?></span></h3>
+                        <h3>Definition: <?php echo $oWord->definition ?></h3>
+                        <a href="#" data-toggle="tooltip" title="<?php echo $oWord->word ?>">
+                            <button><span class="glyphicon glyphicon-question-sign"></span></button>                                
+                        </a>                        
+                    </div>
+                </div>
             </div>
 

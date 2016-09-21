@@ -42,6 +42,8 @@ angular.module("myApp", []).controller("wordController", function ($scope, $wind
     $scope.checkWord = function () {
         if ( chars == solution )
         {
+                var element = $window.document.getElementById("nextURL");
+                element.focus();
                 return true;
         }
         else
