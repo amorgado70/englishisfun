@@ -49,7 +49,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <h2 class="col-xs-1 text-right" >
+                            <h2 class="col-xs-2 text-right" >
                                 <span ng-show="checkChars()">&#x1F60A</span>
                                 <span ng-show="!checkChars()">&#x1F61E</span>
                             </h2>                           
@@ -61,7 +61,12 @@
                             </h2>
                             <input class="form-control hidden-all" id="charInput" name="charInput" ng-keydown="addChar($event)" ng-model="charInput"/>                           
                         </div>                        
-                        <h3 class="row visible-sm visible-md visible-lg">Definition: <?php echo $oWord->definition ?></h3>
+                        <div class="row visible-sm visible-md visible-lg">
+                            <h3>Definition: <?php echo $oWord->definition ?></h3>
+                            <a href="#" data-toggle="tooltip" title="<?php echo $oWord->word ?>">
+                                <button><span class="glyphicon glyphicon-question-sign"></span></button>                                
+                            </a>                        
+                        </div>                        
                     </div>
                 </div>
 

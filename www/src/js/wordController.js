@@ -22,6 +22,16 @@ angular.module("myApp", []).controller("wordController", function ($scope, $wind
             var oneChar = String.fromCharCode(charCode).toUpperCase() ;
             chars = chars + oneChar;                       
         }
+        if ( charCode == 189 )
+        {
+            var oneChar = "-" ;
+            chars = chars + oneChar;                       
+        }
+        if ( charCode == 32 )
+        {
+            var oneChar = " " ;
+            chars = chars + oneChar;                       
+        }        
         if( charCode == 8 || charCode == 46 )
         {
             chars = chars.substring(0,(chars.length -1))
