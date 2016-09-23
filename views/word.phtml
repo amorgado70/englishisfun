@@ -26,10 +26,9 @@
                             }
                             
                         }                            
-                        ?> 
-
-					<p class="row"><br></p>
+                        ?>
                     <div ng-app="myApp" ng-controller="wordController">
+                            <input class="form-control hidden-all" id="charInput" name="charInput" ng-keydown="addChar($event)" ng-model="charInput"/>
                         <div ng-show="checkWord()">
                             <div class="row">
                                 <h2 class="col-xs-10 text-center" >
@@ -49,21 +48,24 @@
                             </div>
                         </div>
                         <div class="row">
+                            <p class="col-xs-1">
+                                <button ng-click="initChars()"><span class="glyphicon glyphicon-repeat"></span></button>
+                            </p>
+                            <p class="col-xs-1">
+                            </p>
+                            <h2 class="col-xs-8">
+                                <span ng-bind="charsOutput"></span>
+                            </h2>
+
                             <h2 class="col-xs-2 text-right" >
                                 <span ng-show="checkChars()">&#x1F60A</span>
                                 <span ng-show="!checkChars()">&#x1F61E</span>
-                            </h2>                           
-                            <h2 class="col-xs-9">
-                                <span ng-bind="charsOutput"></span>
                             </h2>
-                            <h2 class="col-xs-1">
-                                <button ng-click="initChars()"><span class="glyphicon glyphicon-repeat"></span></button>
-                            </h2>
-                            <input class="form-control hidden-all" id="charInput" name="charInput" ng-keydown="addChar($event)" ng-model="charInput"/>                           
                         </div>                        
                         <div class="row visible-sm visible-md visible-lg">
+                            <p><br></p>
                             <h3>Definition: <?php echo $oWord->definition ?></h3>
-                            <h4>Hover To See Answer: <span><?php echo $oWord->word ?></span></h4>
+                            <h4>Click To See Answer: <span><?php echo $oWord->word ?></span></h4>
                         </div>                        
                     </div>
                 </div>
@@ -79,7 +81,7 @@
                     <div class="row hidden-sm hidden-md hidden-lg">
                         <h3><span id="solution" class="hidden-all"><?php echo $oWord->word ?></span></h3>
                         <h3>Definition: <?php echo $oWord->definition ?></h3>
-                        <h4>Hover To See Answer: <span><?php echo $oWord->word ?></span></h4>
+                        <h4>Click To See Answer: <span><?php echo $oWord->word ?></span></h4>
                     </div>
                 </div>
             </div>
