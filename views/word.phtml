@@ -63,17 +63,15 @@
                         </div>                        
                         <div class="row visible-sm visible-md visible-lg">
                             <h3>Definition: <?php echo $oWord->definition ?></h3>
-                            <a href="#" data-toggle="tooltip" title="<?php echo $oWord->word ?>">
-                                <button><span class="glyphicon glyphicon-question-sign"></span></button>                                
-                            </a>                        
+                            <h4>Hover To See Answer: <span><?php echo $oWord->word ?></span></h4>
                         </div>                        
                     </div>
                 </div>
 
-
                 <div class="col-md-6">
                     <div class="row">
-                        <img class="imgcarousel1" alt="<?php echo $oWord->word ?>" src="/<?php echo $oWord->imageURL; ?>" title="<?php echo $oWord->word ?>">
+                        <object class="imgcarousel1" data="/<?php echo $oWord->imageURL; ?>" type="image/jpg">
+                        </object>
                     </div>
                 </div>
 
@@ -81,9 +79,7 @@
                     <div class="row hidden-sm hidden-md hidden-lg">
                         <h3><span id="solution" class="hidden-all"><?php echo $oWord->word ?></span></h3>
                         <h3>Definition: <?php echo $oWord->definition ?></h3>
-                        <a href="#" data-toggle="tooltip" title="<?php echo $oWord->word ?>">
-                            <button><span class="glyphicon glyphicon-question-sign"></span></button>                                
-                        </a>                        
+                        <h4>Hover To See Answer: <span><?php echo $oWord->word ?></span></h4>
                     </div>
                 </div>
             </div>
