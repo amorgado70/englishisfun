@@ -1,3 +1,2 @@
-# englishisfun
-Site with games to help English learners develop their active vocabulary.
-http://www.englishisfun.club/
+# openshiftcomposerstart
+this is meant to be supplied as the repository for a new openshift project. Replace this with your own README in your project.
